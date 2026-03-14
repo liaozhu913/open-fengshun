@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>丰顺口碑簿 - 推荐你用过的好服务</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, 'PingFang SC', sans-serif; background: #f8f9fa; color: #333; }
+.header { background: #2c3e50; color: white; padding: 1.5rem 1rem; text-align: center; }
+.header h1 { font-size: 1.5rem; }
+.header p { opacity: 0.7; font-size: 0.85rem; margin-top: 0.3rem; }
+.container { max-width: 520px; margin: 0 auto; padding: 1rem; }
+.card { background: white; border-radius: 12px; padding: 1.5rem; margin-top: 1rem; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+.field { margin-bottom: 1.2rem; }
+.field label { display: block; font-weight: 500; margin-bottom: 0.4rem; font-size: 0.9rem; color: #555; }
+.field .req { color: #e74c3c; }
+.field input, .field select, .field textarea {
+  width: 100%; padding: 0.65rem 0.8rem; border: 1px solid #ddd; border-radius: 8px;
+  font-size: 0.95rem; background: #fafafa;
+}
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: #3498db; background: #fff; }
+.field textarea { resize: vertical; min-height: 70px; }
+.btn {
+  width: 100%; padding: 0.85rem; background: #2c3e50; color: white; border: none;
+  border-radius: 10px; font-size: 1rem; cursor: pointer; margin-top: 0.5rem;
+}
+.btn:hover { background: #34495e; }
+.success { display: none; text-align: center; padding: 2.5rem 1rem; }
+.success .icon { font-size: 3rem; }
+.success h2 { color: #27ae60; margin: 0.5rem 0; font-size: 1.2rem; }
+.success p { color: #888; font-size: 0.9rem; }
+.examples { background: #f0f4f8; border-radius: 10px; padding: 1rem; margin-bottom: 1.2rem; font-size: 0.82rem; color: #666; line-height: 1.8; }
+.examples strong { color: #333; }
+.footer { text-align: center; padding: 1.5rem; color: #bbb; font-size: 0.8rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>📖 丰顺口碑簿</h1>
+  <p>用过的好服务，分享给乡亲</p>
+</div>
+<div class="container">
+  <div class="card" id="formCard">
+    <div class="examples">
+      <strong>💡 举个栗子：</strong><br>
+      店名：老李水电维修<br>
+      做什么：维修<br>
+      在哪：汤坑镇<br>
+      位置：老县委附近，问人就知道<br>
+      电话：138xxxx1234<br>
+      怎么说：修了我家漏水，收了80块，手艺好不墨迹<br>
+      谁推荐：隔壁王婶
+    </div>
+    <form id="f">
+      <div class="field">
+        <label>店名或师傅名 <span class="req">*</span></label>
+        <input type="text" id="name" required placeholder="如：老李水电维修">
+      </div>
+      <div class="field">
+        <label>做什么的 <span class="req">*</span></label>
+        <select id="cat" required>
+          <option value="">选一个</option>
+          <option value="餐饮">🍽️ 餐饮（饭店、小吃、夜宵）</option>
+          <option value="维修">🔧 维修（水电、电器、手机）</option>
+          <option value="装修">🏠 装修（泥水、木工、油漆）</option>
+          <option value="家政">🧹 家政（保洁、保姆、月嫂）</option>
+          <option value="医疗">💊 医疗（诊所、牙科、中医）</option>
+          <option value="美容">💇 美容（理发、美甲、护肤）</option>
+          <option value="汽车">🚗 汽车（修车、洗车、年检）</option>
+          <option value="培训">📚 培训（补习、兴趣班）</option>
+          <option value="其他">📌 其他</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>在哪个镇 <span class="req">*</span></label>
+        <select id="town" required>
+          <option value="">选一个</option>
+          <option>汤坑镇</option><option>留隍镇</option><option>丰良镇</option>
+          <option>潘田镇</option><option>黄金镇</option><option>潭江镇</option>
+          <option>汤南镇</option><option>埔寨镇</option><option>北斗镇</option>
+          <option>八乡山镇</option><option>建桥镇</option><option>龙岗镇</option>
+          <option>大龙华镇</option><option>小胜镇</option><option>砂田镇</option>
+          <option>潭山镇</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>具体位置</label>
+        <input type="text" id="addr" placeholder="在哪条街、怎么找">
+      </div>
+      <div class="field">
+        <label>电话或微信</label>
+        <input type="text" id="phone" placeholder="方便别人联系">
+      </div>
+      <div class="field">
+        <label>用过怎么说 <span class="req">*</span></label>
+        <textarea id="review" required placeholder="你的真实体验，一句话就行"></textarea>
+      </div>
+      <div class="field">
+        <label>谁推荐的（你的昵称）</label>
+        <input type="text" id="who" placeholder="选填，匿名也行">
+      </div>
+      <button type="submit" class="btn">✅ 推荐给乡亲</button>
+    </form>
+  </div>
+  <div class="success" id="ok">
+    <div class="icon">🙏</div>
+    <h2>感谢推荐！</h2>
+    <p>乡亲们会看到你的分享</p>
+    <br>
+    <button onclick="location.reload()" style="padding:0.6rem 1.5rem;background:#2c3e50;color:white;border:none;border-radius:8px;cursor:pointer;">再推荐一个</button>
+  </div>
+</div>
+<div class="footer">📖 丰顺口碑簿 · 丰顺人帮丰顺人</div>
+<script>
+document.getElementById('f').onsubmit = function(e) {
+  e.preventDefault();
+  var data = {
+    '店名/师傅': document.getElementById('name').value,
+    '做什么的': document.getElementById('cat').value,
+    '在哪个镇': document.getElementById('town').value,
+    '具体位置': document.getElementById('addr').value,
+    '电话/微信': document.getElementById('phone').value,
+    '用过怎么说': document.getElementById('review').value,
+    '谁推荐的': document.getElementById('who').value || '匿名'
+  };
+  var list = JSON.parse(localStorage.getItem('kb') || '[]');
+  list.push(data);
+  localStorage.setItem('kb', JSON.stringify(list));
+  document.getElementById('formCard').style.display = 'none';
+  document.getElementById('ok').style.display = 'block';
+};
+</script>
+</body>
+</html>
