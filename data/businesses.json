@@ -2,8 +2,8 @@
   "meta": {
     "source": "开源丰顺 OpenFengshun",
     "collected_at": "2026-03-14T11:54:35.067867",
-    "total_records": 90,
-    "version": "0.5"
+    "total_records": 144,
+    "version": "0.8"
   },
   "businesses": [
     {
@@ -1449,6 +1449,742 @@
       "description": "蛋糕面包，近潘田公交站",
       "price_range": "人均15-40",
       "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "丰潭原生态茶园",
+      "category": "购物",
+      "subcategory": "茶园",
+      "town": "潭江镇",
+      "address": "银溪村169号",
+      "phone": "13510993199",
+      "description": "原生态茶叶种植，单枞茶",
+      "price_range": "50-200/斤",
+      "rating": 4.3,
+      "tags": [
+        "特产"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "银溪村輋禾地无公害茶叶基地",
+      "category": "购物",
+      "subcategory": "茶园",
+      "town": "潭江镇",
+      "address": "潭江镇184乡道东50米",
+      "phone": "0753-6350326",
+      "description": "无公害茶叶生产基地",
+      "price_range": "50-200/斤",
+      "rating": 4.3,
+      "tags": [
+        "特产"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "凤畲茶业发展有限公司",
+      "category": "购物",
+      "subcategory": "茶叶",
+      "town": "潭江镇",
+      "address": "凤坪畲族村（X027西）",
+      "phone": "14718244073",
+      "description": "畲族村茶叶企业",
+      "price_range": "50-200/斤",
+      "rating": 4.2,
+      "tags": [
+        "特产"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "凤香茶业（凤坪单枞）",
+      "category": "购物",
+      "subcategory": "茶叶",
+      "town": "潭江镇",
+      "address": "凤坪畲族村上村凤香茶园",
+      "phone": "13411271801",
+      "description": "主打凤坪单枞茶",
+      "price_range": "80-300/斤",
+      "rating": 4.3,
+      "tags": [
+        "特产"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "风吹寨茶旅客栈",
+      "category": "住宿",
+      "subcategory": "客栈",
+      "town": "潭江镇",
+      "address": "凤坪畲族村三农茶厂西北86米",
+      "phone": "13670870008",
+      "description": "畲族村茶旅体验客栈，住宿+茶饮",
+      "price_range": "100-200",
+      "rating": 4.2,
+      "tags": [
+        "特色"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "正宗客家卤味",
+      "category": "餐饮",
+      "subcategory": "卤味",
+      "town": "潭江镇",
+      "address": "潭江镇沿江路与027县道交叉口西南380米",
+      "phone": "13751989703",
+      "description": "潭江镇客家卤味店",
+      "price_range": "人均20-40",
+      "rating": 4.1,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "锋记餐厅",
+      "category": "餐饮",
+      "subcategory": "餐厅",
+      "town": "建桥镇",
+      "address": "建桥镇润达五金（206国道店）东62米",
+      "phone": "15219110494",
+      "description": "建桥镇206国道旁餐厅",
+      "price_range": "人均40-60",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "恒胜餐饮店",
+      "category": "餐饮",
+      "subcategory": "餐厅",
+      "town": "小胜镇",
+      "address": "兴胜街小胜镇文祠幼儿园西北侧约160米",
+      "phone": "18218850528",
+      "description": "小胜镇本地餐厅",
+      "price_range": "人均30-50",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "小胜镇卫生院",
+      "category": "医疗",
+      "subcategory": "卫生院",
+      "town": "小胜镇",
+      "address": "小胜镇",
+      "phone": "0753-6330243",
+      "description": "丰顺县人民医院小胜分院，综合医疗",
+      "price_range": "",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "顺达餐馆",
+      "category": "餐饮",
+      "subcategory": "餐馆",
+      "town": "留隍镇",
+      "address": "留隍镇茶背村茶背街道3号",
+      "phone": "13727608408",
+      "description": "留隍镇茶背村餐馆",
+      "price_range": "人均40-60",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "丰良镇卫生院",
+      "category": "医疗",
+      "subcategory": "卫生院",
+      "town": "丰良镇",
+      "address": "丰良镇",
+      "phone": "",
+      "description": "丰良镇综合医疗、预防接种",
+      "price_range": "",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "龙岗镇卫生院",
+      "category": "医疗",
+      "subcategory": "卫生院",
+      "town": "龙岗镇",
+      "address": "龙岗镇松江村028县道",
+      "phone": "0753-6270243",
+      "description": "丰顺县中医院龙岗分院，预防接种、基本医疗",
+      "price_range": "",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "乐淘淘商店",
+      "category": "购物",
+      "subcategory": "商店",
+      "town": "龙岗镇",
+      "address": "龙岗镇龙华路279号",
+      "phone": "13502534433",
+      "description": "龙岗镇综合商店",
+      "price_range": "",
+      "rating": 3.9,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "环东早餐店",
+      "category": "餐饮",
+      "subcategory": "早餐",
+      "town": "建桥镇",
+      "address": "建桥镇环东村社下水背19号",
+      "phone": "13714130465",
+      "description": "建桥镇早餐店",
+      "price_range": "人均5-15",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "五福桥饭店",
+      "category": "餐饮",
+      "subcategory": "饭店",
+      "town": "建桥镇",
+      "address": "建桥镇三社侨新小学西南侧250米",
+      "phone": "14754651221",
+      "description": "建桥镇本地饭店",
+      "price_range": "人均40-60",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "水库农庄",
+      "category": "餐饮",
+      "subcategory": "农庄",
+      "town": "建桥镇",
+      "address": "建桥镇环西村洋坑水库",
+      "phone": "0753-6258668",
+      "description": "水库边农庄，环境好",
+      "price_range": "人均50-80",
+      "rating": 4.1,
+      "tags": [
+        "农家乐"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "捷兴粮油综合商店",
+      "category": "购物",
+      "subcategory": "商店",
+      "town": "建桥镇",
+      "address": "建桥镇人民政府西南侧约250米",
+      "phone": "13723637280",
+      "description": "粮油日用品",
+      "price_range": "",
+      "rating": 3.9,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "丰盛粮油便利店",
+      "category": "购物",
+      "subcategory": "便利店",
+      "town": "小胜镇",
+      "address": "小胜镇人民政府西侧约110米",
+      "phone": "19902558086",
+      "description": "粮油日用品便利店",
+      "price_range": "",
+      "rating": 3.9,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "老黄酒厂",
+      "category": "购物",
+      "subcategory": "酒厂",
+      "town": "小胜镇",
+      "address": "小胜镇中社中新28号",
+      "phone": "15767059980",
+      "description": "客家黄酒酿造",
+      "price_range": "20-50/瓶",
+      "rating": 4.1,
+      "tags": [
+        "特产"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "幸福食堂",
+      "category": "餐饮",
+      "subcategory": "食堂",
+      "town": "大龙华镇",
+      "address": "大龙华镇大田村大田街188号",
+      "phone": "",
+      "description": "养老助餐点",
+      "price_range": "人均10-20",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "亮兴餐厅",
+      "category": "餐饮",
+      "subcategory": "餐厅",
+      "town": "留隍镇",
+      "address": "新兴路留隍客运站对面",
+      "phone": "0753-6428858",
+      "description": "留隍镇老牌餐厅",
+      "price_range": "人均40-60",
+      "rating": 4.1,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "老炳农家菜饭店",
+      "category": "餐饮",
+      "subcategory": "农家菜",
+      "town": "留隍镇",
+      "address": "新兴路393号",
+      "phone": "18319900895",
+      "description": "留隍镇农家菜",
+      "price_range": "人均40-60",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "好回味肠粉店",
+      "category": "餐饮",
+      "subcategory": "肠粉",
+      "town": "留隍镇",
+      "address": "万江大道北侧39号",
+      "phone": "15219119855",
+      "description": "留隍特色肠粉",
+      "price_range": "人均10-20",
+      "rating": 4.1,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "伟雄饭店",
+      "category": "餐饮",
+      "subcategory": "饭店",
+      "town": "留隍镇",
+      "address": "S227省道与Y217乡道交叉口西南50米",
+      "phone": "15219123335",
+      "description": "省道旁饭店",
+      "price_range": "人均40-60",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "新锦潮餐厅",
+      "category": "餐饮",
+      "subcategory": "餐厅",
+      "town": "留隍镇",
+      "address": "S227省道阳光大堤路100号",
+      "phone": "18316792987",
+      "description": "潮汕风味餐厅",
+      "price_range": "人均40-60",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "阿源牛肉火锅店",
+      "category": "餐饮",
+      "subcategory": "火锅",
+      "town": "留隍镇",
+      "address": "留隍镇",
+      "phone": "",
+      "description": "留隍牛肉火锅，2018年开业",
+      "price_range": "人均60-100",
+      "rating": 4.1,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "苏南卤鹅店",
+      "category": "餐饮",
+      "subcategory": "卤鹅",
+      "town": "潘田镇",
+      "address": "人民街315号古楼围石古下路口",
+      "phone": "18319311989",
+      "description": "潘田镇特色卤鹅",
+      "price_range": "人均30-50",
+      "rating": 4.1,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "桥下牛杂",
+      "category": "餐饮",
+      "subcategory": "牛杂",
+      "town": "汤坑镇",
+      "address": "丰顺大道",
+      "phone": "",
+      "description": "县城老字号，招牌牛杂汤粉18元",
+      "price_range": "人均15-25",
+      "rating": 4.3,
+      "tags": [
+        "老字号"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "客家大院餐厅",
+      "category": "餐饮",
+      "subcategory": "客家菜",
+      "town": "汤坑镇",
+      "address": "汤坑镇",
+      "phone": "",
+      "description": "铜盘蒸牛肉、酿豆腐等客家经典菜",
+      "price_range": "人均50-80",
+      "rating": 4.2,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "阿娇粿条汤",
+      "category": "餐饮",
+      "subcategory": "粿条",
+      "town": "汤坑镇",
+      "address": "汤坑镇",
+      "phone": "",
+      "description": "本地认证粿条汤，正宗客家风味",
+      "price_range": "人均10-20",
+      "rating": 4.1,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "白塔牛肉火锅",
+      "category": "餐饮",
+      "subcategory": "火锅",
+      "town": "汤坑镇",
+      "address": "汤坑镇",
+      "phone": "",
+      "description": "美团高分，鲜切牛肉火锅，赠送凉拌海带芋泥酥",
+      "price_range": "人均80-100",
+      "rating": 4.4,
+      "tags": [
+        "美团高分"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "星程丰顺金大温泉酒店",
+      "category": "住宿",
+      "subcategory": "酒店",
+      "town": "汤坑镇",
+      "address": "东山路5号",
+      "phone": "",
+      "description": "客房含温泉泡池，近坚真公园、大润发",
+      "price_range": "200-400",
+      "rating": 4.2,
+      "tags": [
+        "温泉"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "维也纳酒店丰顺温泉店",
+      "category": "住宿",
+      "subcategory": "酒店",
+      "town": "汤坑镇",
+      "address": "高速入口处",
+      "phone": "",
+      "description": "客房供应温泉水，近万佛寺、龙归寨瀑布",
+      "price_range": "200-400",
+      "rating": 4.1,
+      "tags": [
+        "温泉"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "鹏泰购物广场",
+      "category": "购物",
+      "subcategory": "商场",
+      "town": "汤坑镇",
+      "address": "汤坑镇",
+      "phone": "",
+      "description": "丰顺本地购物广场",
+      "price_range": "",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "大润发购物广场",
+      "category": "购物",
+      "subcategory": "商场",
+      "town": "汤坑镇",
+      "address": "汤坑镇",
+      "phone": "",
+      "description": "连锁超市",
+      "price_range": "",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "童心幼儿园",
+      "category": "教育",
+      "subcategory": "幼儿园",
+      "town": "汤坑镇",
+      "address": "广场南路丰顺会展中心西南40米",
+      "phone": "13549175139",
+      "description": "汤坑镇幼儿园",
+      "price_range": "",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "丰顺县第二幼儿园",
+      "category": "教育",
+      "subcategory": "幼儿园",
+      "town": "汤坑镇",
+      "address": "汤坑镇南路70号",
+      "phone": "0753-6633556",
+      "description": "公办幼儿园",
+      "price_range": "",
+      "rating": 4.1,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "一字之师教育",
+      "category": "教育",
+      "subcategory": "培训",
+      "town": "汤坑镇",
+      "address": "汤坑镇千江苑9号商铺（实验幼儿园正对面）",
+      "phone": "13750516542",
+      "description": "教育培训机构",
+      "price_range": "",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "土药方老字号药店",
+      "category": "医疗",
+      "subcategory": "药店",
+      "town": "汤坑镇",
+      "address": "威汕线汤坑镇第三小学北侧约210米",
+      "phone": "15219129154",
+      "description": "老字号中药店",
+      "price_range": "",
+      "rating": 4.0,
+      "tags": [
+        "老字号"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "陈记白粥店",
+      "category": "餐饮",
+      "subcategory": "粥店",
+      "town": "汤坑镇",
+      "address": "新堤路",
+      "phone": "",
+      "description": "丰顺站附近，白粥配小菜",
+      "price_range": "人均10-20",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "撸虾哥",
+      "category": "餐饮",
+      "subcategory": "烧烤",
+      "town": "汤坑镇",
+      "address": "站前街",
+      "phone": "",
+      "description": "丰顺站附近烧烤",
+      "price_range": "人均40-80",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "宏泰餐店",
+      "category": "餐饮",
+      "subcategory": "餐厅",
+      "town": "留隍镇",
+      "address": "G355留隍中心小学东南侧约60米",
+      "phone": "18823015338",
+      "description": "留隍镇本地餐厅",
+      "price_range": "人均30-50",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "古茗丰顺留隍镇店",
+      "category": "餐饮",
+      "subcategory": "奶茶",
+      "town": "留隍镇",
+      "address": "新兴路409-1和409-2门面",
+      "phone": "13332701540",
+      "description": "连锁奶茶店",
+      "price_range": "人均10-20",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "金丰酒家",
+      "category": "餐饮",
+      "subcategory": "酒家",
+      "town": "黄金镇",
+      "address": "沿江路",
+      "phone": "0753-6363568",
+      "description": "黄金镇农家菜",
+      "price_range": "人均40-60",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "埔寨镇粤煌烧腊店",
+      "category": "餐饮",
+      "subcategory": "烧腊",
+      "town": "埔寨镇",
+      "address": "埔龙大道352号",
+      "phone": "",
+      "description": "烧腊餐饮",
+      "price_range": "人均20-40",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "永盛隆江猪脚饭店",
+      "category": "餐饮",
+      "subcategory": "猪脚饭",
+      "town": "埔寨镇",
+      "address": "埔北村东升小组大路边",
+      "phone": "",
+      "description": "隆江猪脚饭",
+      "price_range": "人均15-30",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "龍昌全牛食府",
+      "category": "餐饮",
+      "subcategory": "全牛",
+      "town": "埔寨镇",
+      "address": "埔寨镇",
+      "phone": "",
+      "description": "入选丰顺名店评选，特色全牛料理",
+      "price_range": "人均60-100",
+      "rating": 4.2,
+      "tags": [
+        "丰顺名店"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "丰良田园酒家",
+      "category": "住宿",
+      "subcategory": "酒家",
+      "town": "丰良镇",
+      "address": "丰留路222号",
+      "phone": "",
+      "description": "20间客房，24小时温泉，免费停车场，邻近丰良斜塔",
+      "price_range": "150-300",
+      "rating": 4.1,
+      "tags": [
+        "温泉"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "大坝园酒家",
+      "category": "餐饮",
+      "subcategory": "酒家",
+      "town": "砂田镇",
+      "address": "砂田镇",
+      "phone": "",
+      "description": "入选丰顺名店评选",
+      "price_range": "人均40-60",
+      "rating": 4.1,
+      "tags": [
+        "丰顺名店"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "八乡饭店",
+      "category": "餐饮",
+      "subcategory": "饭店",
+      "town": "八乡山镇",
+      "address": "八乡山镇",
+      "phone": "",
+      "description": "入选丰顺名店评选",
+      "price_range": "人均40-60",
+      "rating": 4.1,
+      "tags": [
+        "丰顺名店"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "龙山食府",
+      "category": "餐饮",
+      "subcategory": "食府",
+      "town": "汤南镇",
+      "address": "汤南镇",
+      "phone": "",
+      "description": "入选丰顺名店评选",
+      "price_range": "人均50-80",
+      "rating": 4.1,
+      "tags": [
+        "丰顺名店"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "汤南镇东育幼儿园",
+      "category": "教育",
+      "subcategory": "幼儿园",
+      "town": "汤南镇",
+      "address": "汤南镇阳光村",
+      "phone": "0753-6522067",
+      "description": "民办幼儿园",
+      "price_range": "",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "永宏电器百货商场",
+      "category": "购物",
+      "subcategory": "商场",
+      "town": "潭江镇",
+      "address": "沿江路",
+      "phone": "",
+      "description": "零售日用品、五金电器",
+      "price_range": "",
+      "rating": 3.9,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "花仙子酒坊",
+      "category": "购物",
+      "subcategory": "酒坊",
+      "town": "潭江镇",
+      "address": "新公路",
+      "phone": "",
+      "description": "批发零售白酒",
+      "price_range": "",
+      "rating": 3.9,
       "tags": [],
       "source": "web_crawl"
     }
