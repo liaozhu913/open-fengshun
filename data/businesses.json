@@ -2,8 +2,8 @@
   "meta": {
     "source": "开源丰顺 OpenFengshun",
     "collected_at": "2026-03-14T11:54:35.067867",
-    "total_records": 76,
-    "version": "0.4"
+    "total_records": 90,
+    "version": "0.5"
   },
   "businesses": [
     {
@@ -11,8 +11,8 @@
       "category": "温泉",
       "subcategory": "度假村",
       "town": "留隍镇",
-      "address": "丰顺县留隍镇",
-      "phone": "",
+      "address": "留隍镇留隍大桥直行500米",
+      "phone": "0753-6888888",
       "description": "国家AAAA旅游景区，东南亚园林式建筑，客家文化主题，21个特色温泉池，别墅配私家温泉池，主打氢温泉养生。",
       "price_range": "640+",
       "rating": 4.8,
@@ -47,8 +47,8 @@
       "category": "住宿",
       "subcategory": "四星级酒店",
       "town": "汤坑镇",
-      "address": "丰顺县汤坑镇新城区",
-      "phone": "",
+      "address": "汤坑镇雄风大道金河桥头",
+      "phone": "0753-6688888",
       "description": "四星级，客家草药蒸汽房、搓背服务，近市中心，性价比高。毗邻全国第一座地热发电站。",
       "price_range": "150-300",
       "rating": 4.5,
@@ -82,8 +82,8 @@
       "category": "住宿",
       "subcategory": "温泉酒店",
       "town": "汤坑镇",
-      "address": "丰顺县梅汕高速出口附近",
-      "phone": "",
+      "address": "汤坑镇开发区金河西区",
+      "phone": "0753-6188888",
       "description": "400多米深氡温泉，30多个空中温泉池，2000平方米室内空中SPA温泉。",
       "price_range": "200-400",
       "rating": 4.4,
@@ -99,7 +99,7 @@
       "category": "住宿",
       "subcategory": "高档酒店",
       "town": "汤坑镇",
-      "address": "丰顺县华茂",
+      "address": "汤坑镇金河大道1号",
       "phone": "",
       "description": "屋顶无边泳池，免费接站，内设温泉泡浴，获评丰顺高档酒店榜No.1。",
       "price_range": "300-500",
@@ -933,7 +933,7 @@
       "subcategory": "度假酒店",
       "town": "留隍镇",
       "address": "留隍镇鹿湖温泉度假区内",
-      "phone": "",
+      "phone": "0753-6888888",
       "description": "东南亚风格酒店，含私家温泉池、儿童游乐区、中西餐厅",
       "price_range": "500-1500",
       "rating": 4.5,
@@ -1260,6 +1260,196 @@
       "tags": [
         "免费"
       ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "花好月圆宾馆",
+      "category": "住宿",
+      "subcategory": "宾馆",
+      "town": "留隍镇",
+      "address": "留隍镇留隍大桥头竹园埔",
+      "phone": "0753-6412889",
+      "description": "近鹿湖温泉度假村50米，提供行李寄存、WiFi",
+      "price_range": "100-200",
+      "rating": 4.0,
+      "tags": [
+        "性价比"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "万江汇客栈",
+      "category": "住宿",
+      "subcategory": "客栈",
+      "town": "留隍镇",
+      "address": "留隍镇",
+      "phone": "18928870508",
+      "description": "个体客栈，2024年开业",
+      "price_range": "80-150",
+      "rating": 3.9,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "茶峰餐馆",
+      "category": "餐饮",
+      "subcategory": "餐馆",
+      "town": "留隍镇",
+      "address": "留隍镇S233茶背中心小学东南侧约100米",
+      "phone": "18038580580",
+      "description": "留隍镇本地餐馆",
+      "price_range": "人均40-60",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "美优乐留隍店",
+      "category": "餐饮",
+      "subcategory": "快餐",
+      "town": "留隍镇",
+      "address": "留隍镇新兴路573号乐学大厦",
+      "phone": "19075099517",
+      "description": "新兴路快餐",
+      "price_range": "人均20-40",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "小胜老鼠粄黄金店",
+      "category": "餐饮",
+      "subcategory": "小吃",
+      "town": "黄金镇",
+      "address": "黄金镇建新街36号",
+      "phone": "14758321408",
+      "description": "特色老鼠粄小吃",
+      "price_range": "人均10-20",
+      "rating": 4.1,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "煲金珠埔寨店",
+      "category": "餐饮",
+      "subcategory": "煲仔饭",
+      "town": "埔寨镇",
+      "address": "埔寨镇埔龙大道283号",
+      "phone": "18675353881",
+      "description": "煲仔饭专门店",
+      "price_range": "人均20-40",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "八乡高山土特产商行",
+      "category": "购物",
+      "subcategory": "土特产",
+      "town": "八乡山镇",
+      "address": "八乡山中学东侧约120米",
+      "phone": "15089486126",
+      "description": "八乡山本地土特产，番薯、茶叶、笋干",
+      "price_range": "10-100",
+      "rating": 4.2,
+      "tags": [
+        "特产"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "正鑫八乡茶庄",
+      "category": "购物",
+      "subcategory": "茶叶",
+      "town": "丰良镇",
+      "address": "丰良镇新大街143号",
+      "phone": "13267817468",
+      "description": "八乡山茶专营",
+      "price_range": "50-200/斤",
+      "rating": 4.1,
+      "tags": [
+        "特产"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "林弟卤鹅腌面汤粉店",
+      "category": "餐饮",
+      "subcategory": "汤粉",
+      "town": "汤南镇",
+      "address": "汤南镇新埔园村龙上155号",
+      "phone": "18933481214",
+      "description": "汤南特色卤鹅腌面",
+      "price_range": "人均15-30",
+      "rating": 4.2,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "汤南全牛",
+      "category": "餐饮",
+      "subcategory": "火锅",
+      "town": "汤南镇",
+      "address": "206国道粤东商贸城",
+      "phone": "15602785867",
+      "description": "主打牛肉火锅，腌牛肉、炒粄、牛杂煲，竹棚风格，免费停车包厢",
+      "price_range": "人均60-100",
+      "rating": 4.4,
+      "tags": [
+        "特色"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "阿福大排档",
+      "category": "餐饮",
+      "subcategory": "大排档",
+      "town": "汤南镇",
+      "address": "206国道御逸温泉度假村酒店大门左边",
+      "phone": "13657801760",
+      "description": "大排档，夜宵",
+      "price_range": "人均40-60",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "谭记早餐店",
+      "category": "餐饮",
+      "subcategory": "早餐",
+      "town": "大龙华镇",
+      "address": "X028县道镇政府南侧约280米",
+      "phone": "18319660618",
+      "description": "大龙华镇早餐店",
+      "price_range": "人均5-15",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "肥滨粄店",
+      "category": "餐饮",
+      "subcategory": "小吃",
+      "town": "潘田镇",
+      "address": "中心村退役军人服务站西南侧130米",
+      "phone": "18218789093",
+      "description": "潘田特色粄类小吃",
+      "price_range": "人均10-20",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "素然请进蛋糕店",
+      "category": "餐饮",
+      "subcategory": "烘焙",
+      "town": "潘田镇",
+      "address": "G355福巴线近文昌街潘田桥",
+      "phone": "15218031232",
+      "description": "蛋糕面包，近潘田公交站",
+      "price_range": "人均15-40",
+      "rating": 4.0,
+      "tags": [],
       "source": "web_crawl"
     }
   ]
