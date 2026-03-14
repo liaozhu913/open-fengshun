@@ -1,0 +1,122 @@
+#!/usr/bin/env python3
+"""
+将采集到的丰顺商家数据结构化入库 - v0.2 完整版
+"""
+
+import json
+import os
+from datetime import datetime
+
+DATA_DIR = os.path.dirname(os.path.abspath(__file__)) + "/../data"
+
+BUSINESSES = [
+    # ===== 温泉酒店 & 度假村 =====
+    {"name": "鹿湖温泉度假村", "category": "温泉", "subcategory": "度假村", "town": "留隍镇", "address": "丰顺县留隍镇", "phone": "", "description": "国家AAAA旅游景区，东南亚园林式建筑，客家文化主题，21个特色温泉池，别墅配私家温泉池，主打氢温泉养生。", "price_range": "640+", "rating": 4.8, "tags": ["AAAA景区", "高端", "别墅私汤", "氢温泉"], "source": "web_crawl"},
+    {"name": "金德宝凯悦国际温泉度假酒店", "category": "住宿", "subcategory": "四星级酒店", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "四星级，巴厘岛风情，占地5万多平米，温泉区1.85万平米，92℃高温硫磺泉，40多个户外温泉池，配备儿童乐园、SPA会所。", "price_range": "600-1200", "rating": 4.7, "tags": ["四星", "巴厘岛风情", "亲子", "硫磺泉"], "source": "web_crawl"},
+    {"name": "千江温泉酒店", "category": "住宿", "subcategory": "四星级酒店", "town": "汤坑镇", "address": "丰顺县汤坑镇新城区", "phone": "", "description": "四星级，客家草药蒸汽房、搓背服务，近市中心，性价比高。毗邻全国第一座地热发电站。", "price_range": "150-300", "rating": 4.5, "tags": ["四星", "性价比", "客家草药"], "source": "web_crawl"},
+    {"name": "御逸温泉度假村", "category": "温泉", "subcategory": "度假村", "town": "汤坑镇", "address": "丰顺县", "phone": "", "description": "国家AAA景区，半山悬崖药浴池（当归、艾草），碳酸氢钠泉，水温55-65℃，含偏硅酸，配套水上乐园、儿童池。", "price_range": "300-600", "rating": 4.5, "tags": ["AAA景区", "悬崖药浴", "水上乐园", "亲子"], "source": "web_crawl"},
+    {"name": "宝丰温泉酒店", "category": "住宿", "subcategory": "温泉酒店", "town": "汤坑镇", "address": "丰顺县梅汕高速出口附近", "phone": "", "description": "400多米深氡温泉，30多个空中温泉池，2000平方米室内空中SPA温泉。", "price_range": "200-400", "rating": 4.4, "tags": ["氡温泉", "空中温泉", "商务"], "source": "web_crawl"},
+    {"name": "维纳斯国际酒店（丰顺华茂温泉店）", "category": "住宿", "subcategory": "高档酒店", "town": "汤坑镇", "address": "丰顺县华茂", "phone": "", "description": "屋顶无边泳池，免费接站，内设温泉泡浴，获评丰顺高档酒店榜No.1。", "price_range": "300-500", "rating": 4.6, "tags": ["无边泳池", "免费接站", "高档"], "source": "web_crawl"},
+    {"name": "风度温泉大酒店", "category": "住宿", "subcategory": "三星级酒店", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "三星级酒店，提供温泉服务。", "price_range": "150-300", "rating": 4.2, "tags": ["三星", "温泉"], "source": "web_crawl"},
+
+    # ===== 旅游景点 =====
+    {"name": "龙归寨瀑布", "category": "旅游", "subcategory": "自然景观", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "国家AAA景区，粤东第一瀑。落差115-125米，雨季水流磅礴，水雾缭绕，晴天常现彩虹。门票约50元。", "price_range": "50", "rating": 4.6, "tags": ["AAA景区", "瀑布", "粤东第一瀑", "自然"], "source": "web_crawl"},
+    {"name": "八乡山大峡谷", "category": "旅游", "subcategory": "自然景观", "town": "八乡山镇", "address": "丰顺县八乡山镇", "phone": "", "description": "国家AAA景区，天然氧吧、避暑胜地。全长3.5公里，溪流、瀑布群密集，森林覆盖率90%以上，夏季平均气温18.7℃。门票约45元。", "price_range": "45", "rating": 4.5, "tags": ["AAA景区", "峡谷", "避暑", "徒步", "溯溪"], "source": "web_crawl"},
+    {"name": "铜鼓峰", "category": "旅游", "subcategory": "自然景观", "town": "砂田镇", "address": "丰顺县砂田镇", "phone": "", "description": "粤东第一峰，海拔1559.5米。山顶可赏日出、云海、风车群，山腰有百年古村落。免费，停车费20元。", "price_range": "免费（停车20元）", "rating": 4.7, "tags": ["粤东第一峰", "云海", "日出", "徒步", "免费"], "source": "web_crawl"},
+    {"name": "韩山历史文化生态区", "category": "旅游", "subcategory": "文化景区", "town": "丰良镇", "address": "丰顺县丰良镇", "phone": "", "description": "国家AAAA景区，因韩愈驻足得名，融合茶园风光、历史文化，适合品茶、徒步，按5A标准打造。", "price_range": "", "rating": 4.6, "tags": ["AAAA景区", "文化", "茶园", "避暑", "韩愈"], "source": "web_crawl"},
+    {"name": "种玊上围", "category": "旅游", "subcategory": "人文景观", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "粤东独特古寨堡，始建于清顺治年间（360余年历史），方形围屋结构，展现客家建筑智慧。", "price_range": "免费", "rating": 4.3, "tags": ["古寨", "客家建筑", "历史", "免费"], "source": "web_crawl"},
+    {"name": "万佛园（丰顺公园）", "category": "旅游", "subcategory": "公园", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "县城休闲地标，含中华龙、观音阁、九曲桥等景点，适合爬山、俯瞰县城全景。", "price_range": "免费", "rating": 4.2, "tags": ["公园", "休闲", "爬山", "免费"], "source": "web_crawl"},
+    {"name": "龙鲸河漂流景区", "category": "旅游", "subcategory": "体验项目", "town": "黄金镇", "address": "丰顺县黄金镇", "phone": "", "description": "国家AAA景区，龙鲸河漂流，夏季热门项目。", "price_range": "", "rating": 4.4, "tags": ["AAA景区", "漂流", "夏季"], "source": "web_crawl"},
+    {"name": "埔寨火龙", "category": "旅游", "subcategory": "非遗文化", "town": "埔寨镇", "address": "丰顺县埔寨镇", "phone": "", "description": "国家级非遗，元宵节期间上演铁水金花表演，场面震撼。丰顺最具代表性的民俗活动。", "price_range": "免费", "rating": 4.9, "tags": ["非遗", "火龙", "元宵节", "民俗"], "source": "web_crawl"},
+
+    # ===== 餐饮美食 =====
+    {"name": "金贵农庄", "category": "餐饮", "subcategory": "农家菜", "town": "汤坑镇", "address": "金贵大道田园好日子农庄北100米", "phone": "0753-6682388", "description": "特色农家菜，风味牛肉、焗猪肚为招牌菜。", "price_range": "人均71元", "rating": 4.3, "tags": ["农家菜", "牛肉", "焗猪肚"], "source": "web_crawl"},
+    {"name": "鸿兴客家王", "category": "餐饮", "subcategory": "客家菜", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "客家菜餐厅，全猪汤为招牌（25元/碗）。", "price_range": "人均30-50", "rating": 4.2, "tags": ["客家菜", "全猪汤"], "source": "web_crawl"},
+    {"name": "汤坑捆粄（丰顺总店）", "category": "餐饮", "subcategory": "客家小吃", "town": "汤坑镇", "address": "丰顺县汤坑镇东山路", "phone": "", "description": "客家传统小吃，捆粄、牛肉丸汤、菜粿为特色。早餐推荐。", "price_range": "人均10-20", "rating": 4.4, "tags": ["捆粄", "客家小吃", "早餐"], "source": "web_crawl"},
+    {"name": "埔寨圆盘新鲜牛肉老店", "category": "餐饮", "subcategory": "牛肉火锅", "town": "汤坑镇", "address": "丰顺县世纪路5号", "phone": "13825939116", "description": "新鲜牛肉系列，牛肉火锅。埔寨牛肉在丰顺非常有名。", "price_range": "人均50-80", "rating": 4.5, "tags": ["牛肉火锅", "埔寨牛肉", "老字号"], "source": "web_crawl"},
+    {"name": "辉程汤粉店", "category": "餐饮", "subcategory": "汤粉", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "腌水牛肉、牛杂、牛百叶等，水牛肉口感细嫩。当地人气汤粉店。", "price_range": "人均15-30", "rating": 4.3, "tags": ["汤粉", "水牛肉", "牛杂"], "source": "web_crawl"},
+    {"name": "老杨兜汤", "category": "餐饮", "subcategory": "夜宵", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "夜宵推荐，牛肉兜汤（15元/碗），当地夜宵名店。", "price_range": "15元/碗", "rating": 4.3, "tags": ["夜宵", "牛肉兜汤"], "source": "web_crawl"},
+    {"name": "不可炸鸡（丰顺店）", "category": "餐饮", "subcategory": "炸鸡小吃", "town": "汤坑镇", "address": "锦江A区B栋19号", "phone": "", "description": "拉丝芝士球为特色，炸鸡套餐。年轻人喜欢的炸鸡店。", "price_range": "人均20+", "rating": 4.1, "tags": ["炸鸡", "芝士球", "年轻人"], "source": "web_crawl"},
+    {"name": "老苏南卤鹅饭店", "category": "餐饮", "subcategory": "潮汕菜", "town": "汤坑镇", "address": "丰顺县罗湖二路30号", "phone": "", "description": "潮汕风味，卤鹅为招牌。丰顺潮客融合美食代表。", "price_range": "人均40-60", "rating": 4.2, "tags": ["潮汕菜", "卤鹅"], "source": "web_crawl"},
+    {"name": "鸿香饭店", "category": "餐饮", "subcategory": "客家菜", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "客家菜，盐焗鸡为招牌。", "price_range": "人均40-60", "rating": 4.1, "tags": ["客家菜", "盐焗鸡"], "source": "web_crawl"},
+
+    # ===== 医疗 =====
+    {"name": "丰顺县人民医院", "category": "医疗", "subcategory": "综合医院", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "二级甲等综合医院，国家千县工程示范单位，创建于1949年，开放床位350张，年门急诊量20多万人次。设普外、骨科、呼吸内科、心血管内科等重点专科。", "price_range": "", "rating": 4.3, "tags": ["二甲", "综合医院", "医共体总院", "医保定点"], "source": "web_crawl"},
+    {"name": "丰顺县中医院", "category": "医疗", "subcategory": "中医院", "town": "汤坑镇", "address": "丰顺县汤坑镇（新院区）", "phone": "", "description": "二级甲等公立中医院，1986年建院，2021年搬迁新院区（占地3.9万平方米），开放床位300张，设19个临床医技科室。集医疗、科研、康复于一体。", "price_range": "", "rating": 4.2, "tags": ["二甲", "中医院", "康复"], "source": "web_crawl"},
+    {"name": "丰顺县妇幼保健计划生育服务中心", "category": "医疗", "subcategory": "专科医院", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "妇幼保健专科机构，承担全县妇女儿童医疗保健服务。", "price_range": "", "rating": 4.0, "tags": ["妇幼保健", "专科"], "source": "web_crawl"},
+    {"name": "留隍镇中心卫生院（丰顺县第二人民医院）", "category": "医疗", "subcategory": "镇级卫生院", "town": "留隍镇", "address": "丰顺县留隍镇", "phone": "", "description": "挂丰顺县第二人民医院牌子，留隍镇主要医疗机构。", "price_range": "", "rating": 3.8, "tags": ["卫生院", "第二人民医院"], "source": "web_crawl"},
+
+    # ===== 生活服务 =====
+    {"name": "邮储银行丰顺县支行", "category": "生活服务", "subcategory": "银行", "town": "汤坑镇", "address": "丰顺县汤坑镇花园街46-1号", "phone": "", "description": "迁址至滨江湾花园侧，新网点面积310㎡，设智能服务区、理财洽谈区及便民休息区。提供个人储蓄、家庭理财、小微企业信贷等服务。", "price_range": "", "rating": 4.0, "tags": ["银行", "邮储", "智能服务"], "source": "web_crawl"},
+    {"name": "中国农业银行丰顺县支行", "category": "生活服务", "subcategory": "银行", "town": "汤坑镇", "address": "丰顺县汤坑镇大山背东山路19号", "phone": "0753-6623151", "description": "设高柜服务区、智能服务区、财富管理区等，配备多台智能终端，支持存取款、开卡、生活缴费等。", "price_range": "", "rating": 4.0, "tags": ["银行", "农行", "智能终端"], "source": "web_crawl"},
+    {"name": "丰顺农商银行", "category": "生活服务", "subcategory": "银行", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "布放社保卡即时制卡机9台、自助取款机45台、村居e支付POS机具282台、粤智助政府服务自助机301台。移动服务可上门办理业务。", "price_range": "", "rating": 4.0, "tags": ["银行", "农商行", "社保卡", "自助服务"], "source": "web_crawl"},
+    {"name": "中国银行丰顺支行", "category": "生活服务", "subcategory": "银行", "town": "汤坑镇", "address": "丰顺县汤坑镇汤坑路43号", "phone": "", "description": "中国银行丰顺网点，另有新世纪支行（锦江美景城）。", "price_range": "", "rating": 3.9, "tags": ["银行", "中行"], "source": "web_crawl"},
+
+    # ===== 特色小吃 =====
+    {"name": "汤坑老街薯粄", "category": "餐饮", "subcategory": "客家小吃", "town": "汤坑镇", "address": "丰顺县汤坑老街", "phone": "", "description": "传统客家小吃薯粄，5元/个，汤坑老街名物。", "price_range": "5元/个", "rating": 4.3, "tags": ["薯粄", "客家小吃", "老街"], "source": "web_crawl"},
+    {"name": "仙人粄（仙草冻）", "category": "餐饮", "subcategory": "甜品", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "仙人粄（仙草冻），搭配蜂蜜，5元/碗。丰顺消暑甜品。", "price_range": "5元/碗", "rating": 4.2, "tags": ["仙草冻", "甜品", "消暑"], "source": "web_crawl"},
+
+    # ===== 小红书补充 - 餐饮 =====
+    {"name": "米街3号捆粄店", "category": "餐饮", "subcategory": "客家小吃", "town": "汤坑镇", "address": "丰顺县米街3号", "phone": "", "description": "皮薄馅足，经典口味如豆干韭菜、豆角瘦肉、酸菜肉，搭配炖汤解腻。小红书人气捆粄店。", "price_range": "人均10-20", "rating": 4.5, "tags": ["捆粄", "老字号", "小红书推荐"], "source": "xiaohongshu"},
+    {"name": "老鹅干面促肉", "category": "餐饮", "subcategory": "面食", "town": "汤坑镇", "address": "丰顺县汤坑镇金湖路", "phone": "", "description": "猪肉打底，炸蒜香浓郁，面条有嚼劲，搭配肉丸汤或凉拌皮蛋。营业时间17:30-03:30，夜宵名店。", "price_range": "人均20-35", "rating": 4.4, "tags": ["干面", "促肉", "夜宵"], "source": "xiaohongshu"},
+    {"name": "金石汤粉（滨江分店）", "category": "餐饮", "subcategory": "汤粉", "town": "汤坑镇", "address": "丰顺县富岭路", "phone": "", "description": "牛骨汤底浓郁，牛肉新鲜，汤粉+腌面套餐经典搭配。小红书人气汤粉店。", "price_range": "人均20+", "rating": 4.4, "tags": ["汤粉", "牛骨汤", "腌面"], "source": "xiaohongshu"},
+    {"name": "白塔牛肉火锅店", "category": "餐饮", "subcategory": "牛肉火锅", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "每日限定新鲜水牛肉，全牛宴体验，火锅+烤肉双拼，椒盐炸牛排骨必点。小红书高赞推荐。", "price_range": "人均60-100", "rating": 4.6, "tags": ["牛肉火锅", "全牛宴", "烤肉", "小红书推荐"], "source": "xiaohongshu"},
+    {"name": "老厂房串串火锅", "category": "餐饮", "subcategory": "串串", "town": "汤坑镇", "address": "丰顺县富岭路", "phone": "", "description": "有团购优惠，楼下有糖水店可搭配。丰顺串串火锅人气店。", "price_range": "人均40-60", "rating": 4.2, "tags": ["串串", "火锅", "团购"], "source": "xiaohongshu"},
+    {"name": "老杨夜宵店", "category": "餐饮", "subcategory": "夜宵", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "潮汕粥入味，夜宵热门选择，各式潮汕小炒。", "price_range": "人均20-40", "rating": 4.3, "tags": ["潮汕粥", "夜宵", "小炒"], "source": "xiaohongshu"},
+    {"name": "蔡玉皎·传统薄皮蒸饺", "category": "餐饮", "subcategory": "客家小吃", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "皮薄馅足，传统手工蒸饺，性价比高。小红书推荐。", "price_range": "人均15-25", "rating": 4.3, "tags": ["蒸饺", "手工", "性价比"], "source": "xiaohongshu"},
+    {"name": "竹棚全牛", "category": "餐饮", "subcategory": "牛肉火锅", "town": "汤坑镇", "address": "丰顺县汤坑镇", "phone": "", "description": "现宰牛肉，自制调料，全牛火锅。当地人推荐。", "price_range": "人均60-90", "rating": 4.5, "tags": ["牛肉火锅", "现宰", "全牛"], "source": "xiaohongshu"},
+    {"name": "米街冰室", "category": "餐饮", "subcategory": "甜品", "town": "汤坑镇", "address": "丰顺县米街", "phone": "", "description": "绵密冰沙搭配新鲜水果，夏日消暑首选。各种传统甜品。", "price_range": "人均10-20", "rating": 4.2, "tags": ["冰沙", "甜品", "消暑"], "source": "xiaohongshu"},
+
+    # ===== 小红书补充 - 住宿 =====
+    {"name": "十里芸溪温泉别墅", "category": "住宿", "subcategory": "私汤别墅", "town": "汤坑镇", "address": "丰顺县", "phone": "", "description": "「夏至」套房带天台独立温泉池，可俯瞰山景，适合情侣或小团体。私密性好。", "price_range": "500-1000", "rating": 4.6, "tags": ["私汤", "别墅", "情侣", "山景"], "source": "xiaohongshu"},
+    {"name": "海棠湾温泉度假别墅", "category": "住宿", "subcategory": "私汤别墅", "town": "汤坑镇", "address": "丰顺县", "phone": "", "description": "5房中式庭院别墅，带独立泡池、亲子乐园和麻将房，适合家庭聚会或团建。", "price_range": "800-2000", "rating": 4.5, "tags": ["别墅", "庭院", "亲子", "团建", "麻将"], "source": "xiaohongshu"},
+    {"name": "望江湾民宿", "category": "住宿", "subcategory": "民宿", "town": "汤坑镇", "address": "丰顺县鹿湖温泉附近", "phone": "", "description": "鹿湖温泉周边民宿，129元/晚起，性价比高，适合预算有限的游客。", "price_range": "129+", "rating": 4.0, "tags": ["民宿", "性价比", "鹿湖周边"], "source": "xiaohongshu"},
+    {"name": "罗浮空中温泉酒店", "category": "住宿", "subcategory": "温泉酒店", "town": "汤坑镇", "address": "丰顺县", "phone": "", "description": "梅州唯一空中温泉，无边际泳池+水上乐园，适合年轻群体。", "price_range": "300-600", "rating": 4.4, "tags": ["空中温泉", "无边际泳池", "水上乐园"], "source": "xiaohongshu"},
+
+    # ===== 小红书补充 - 景点 =====
+    {"name": "鸿图嶂", "category": "旅游", "subcategory": "自然景观", "town": "八乡山镇", "address": "丰顺县八乡镇", "phone": "", "description": "海拔1200多米，自驾可直达山顶。适合看日出日落，山顶视野开阔，夏季需备长袖。小红书小众秘境推荐。", "price_range": "免费", "rating": 4.5, "tags": ["日出", "日落", "自驾", "小众", "免费"], "source": "xiaohongshu"},
+    {"name": "龙飞磜瀑布", "category": "旅游", "subcategory": "自然景观", "town": "汤坑镇", "address": "丰顺县龙归寨瀑布上游", "phone": "", "description": "龙归寨瀑布上游，未开发秘境，人少景幽，溪水清澈，瀑布分大小两级，适合森系拍照和徒步。", "price_range": "免费", "rating": 4.4, "tags": ["瀑布", "秘境", "徒步", "拍照", "免费"], "source": "xiaohongshu"},
+    {"name": "茶子窝瀑布", "category": "旅游", "subcategory": "自然景观", "town": "砂田镇", "address": "丰顺县砂田镇占中村附近", "phone": "", "description": "藏于山弯，免费开放，沿小径步行可达，周边占中村保留古石桥和原生态村落，适合避暑、玩水。", "price_range": "免费", "rating": 4.3, "tags": ["瀑布", "避暑", "玩水", "古村", "免费"], "source": "xiaohongshu"},
+    {"name": "埔河文庙（文昌阁）", "category": "旅游", "subcategory": "人文景观", "town": "汤坑镇", "address": "丰顺县汤坑镇埔河村口（东海中学旁）", "phone": "", "description": "400余年历史古建筑，免费开放，木质结构保存完好，登塔可俯瞰周边。", "price_range": "免费", "rating": 4.2, "tags": ["古建筑", "文庙", "历史", "免费"], "source": "xiaohongshu"},
+    {"name": "惠仁圣寺", "category": "旅游", "subcategory": "人文景观", "town": "汤坑镇", "address": "丰顺县鸳鸯寨森林公园附近", "phone": "", "description": "当地最大寺院，盛唐风格建筑，亭台楼阁错落，环境清幽肃穆。", "price_range": "免费", "rating": 4.2, "tags": ["寺院", "盛唐风格", "清幽", "免费"], "source": "xiaohongshu"},
+    {"name": "蔗溪村露营钓鱼", "category": "旅游", "subcategory": "户外体验", "town": "留隍镇", "address": "丰顺县留隍镇蔗溪村", "phone": "", "description": "桥下浅水区可玩水避暑，提供石桌石凳，适合露营、钓鱼，免费开放。", "price_range": "免费", "rating": 4.1, "tags": ["露营", "钓鱼", "玩水", "免费"], "source": "xiaohongshu"},
+]
+
+
+def main():
+    output = {
+        "meta": {
+            "source": "开源丰顺 OpenFengshun",
+            "collected_at": datetime.now().isoformat(),
+            "total_records": len(BUSINESSES),
+            "version": "0.2"
+        },
+        "businesses": BUSINESSES
+    }
+
+    filepath = os.path.join(DATA_DIR, "businesses.json")
+    with open(filepath, 'w', encoding='utf-8') as f:
+        json.dump(output, f, ensure_ascii=False, indent=2)
+
+    print(f"✅ 保存 {len(BUSINESSES)} 条商家数据到 businesses.json")
+
+    # 统计
+    categories = {}
+    towns = {}
+    for b in BUSINESSES:
+        cat = b['category']
+        town = b['town']
+        categories[cat] = categories.get(cat, 0) + 1
+        towns[town] = towns.get(town, 0) + 1
+
+    print("\n📊 分类统计:")
+    for cat, count in sorted(categories.items(), key=lambda x: -x[1]):
+        print(f"   {cat}: {count} 家")
+
+    print(f"\n📍 镇覆盖: {len(towns)} / 16 个镇")
+    for town, count in sorted(towns.items(), key=lambda x: -x[1]):
+        print(f"   {town}: {count} 家")
+
+
+if __name__ == "__main__":
+    main()
