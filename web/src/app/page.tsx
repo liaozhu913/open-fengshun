@@ -21,7 +21,7 @@ export default function Home() {
           </p>
           <SearchBar />
           <div className="mt-6 text-sm opacity-80">
-            已收录 <strong>{stats.total}</strong> 家商家 · 覆盖 <strong>{stats.townCount}</strong> 个镇
+            已收录 <strong>{stats.totalBusinesses}</strong> 家商家 · 覆盖 <strong>{stats.totalTowns}</strong> 个镇
           </div>
         </div>
       </section>
