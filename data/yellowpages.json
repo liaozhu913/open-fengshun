@@ -1,0 +1,37 @@
+{
+  "government": [
+    {"name": "丰顺县政务服务中心", "town": "汤坑镇", "address": "汤坑镇新世纪广场路", "phone": "0753-12345", "services": "社保、户籍、营业执照、税务", "hours": "08:30-12:00, 14:30-18:00"},
+    {"name": "汤坑镇政务服务中心", "town": "汤坑镇", "address": "汤坑镇政府大院", "phone": "", "services": "户籍、低保、计生", "hours": "工作日 08:30-12:00"},
+    {"name": "留隍镇政务服务中心", "town": "留隍镇", "address": "留隍镇政府", "phone": "", "services": "户籍、低保、计生", "hours": "工作日 08:30-12:00"},
+    {"name": "丰良镇政务服务中心", "town": "丰良镇", "address": "丰良镇政府", "phone": "", "services": "户籍、低保、计生", "hours": "工作日 08:30-12:00"},
+    {"name": "丰顺县公安局（出入境）", "town": "汤坑镇", "address": "汤坑镇汤坑路", "phone": "0753-6688110", "services": "护照、港澳通行证、身份证", "hours": "工作日 08:30-12:00, 14:30-18:00"},
+    {"name": "丰顺县社保局", "town": "汤坑镇", "address": "汤坑镇新世纪庄园路2号", "phone": "0753-6686181", "services": "社保缴纳、养老金、医保报销", "hours": "工作日 08:30-12:00"},
+    {"name": "丰顺县民政局", "town": "汤坑镇", "address": "汤坑镇", "phone": "", "services": "结婚登记、低保申请、养老服务", "hours": "工作日 08:30-12:00"}
+  ],
+  "medical": [
+    {"name": "丰顺县人民医院", "town": "汤坑镇", "address": "进华路101号", "phone": "", "services": "综合医疗、急诊24小时", "hours": "24小时急诊"},
+    {"name": "丰顺县中医院", "town": "汤坑镇", "address": "汤坑镇新院区", "phone": "", "services": "中医、康复理疗", "hours": "08:00-17:30"},
+    {"name": "丰顺县妇幼保健院", "town": "汤坑镇", "address": "汤坑镇", "phone": "", "services": "产检、儿童保健、疫苗", "hours": "08:00-17:30"},
+    {"name": "留隍镇中心卫生院", "town": "留隍镇", "address": "留隍镇", "phone": "", "services": "综合医疗（县第二人民医院）", "hours": "08:00-17:30"}
+  ],
+  "education": [
+    {"name": "丰顺中学", "town": "汤坑镇", "address": "汤坑镇", "phone": "", "services": "高中教育", "hours": ""},
+    {"name": "东海中学", "town": "汤坑镇", "address": "汤坑镇埔河村", "phone": "", "services": "中学教育", "hours": ""},
+    {"name": "丰顺县实验小学", "town": "汤坑镇", "address": "汤坑镇", "phone": "", "services": "小学教育", "hours": ""}
+  ],
+  "finance": [
+    {"name": "中国银行丰顺支行", "town": "汤坑镇", "address": "汤坑路43号", "phone": "", "services": "存取款、贷款、外汇", "hours": "09:00-17:00"},
+    {"name": "农业银行丰顺支行", "town": "汤坑镇", "address": "大山背东山路19号", "phone": "0753-6623151", "services": "存取款、贷款", "hours": "09:00-17:00"},
+    {"name": "丰顺农商银行", "town": "汤坑镇", "address": "汤坑镇各网点", "phone": "", "services": "存取款、社保卡、贷款", "hours": "08:30-17:00"},
+    {"name": "邮储银行丰顺支行", "town": "汤坑镇", "address": "花园街46-1号", "phone": "", "services": "存取款、理财、贷款", "hours": "09:00-17:00"}
+  ],
+  "logistics": [
+    {"name": "京东快递(丰顺营业部)", "town": "汤坑镇", "address": "金河三横街与金沙街交叉口北100米", "phone": "13824587952", "services": "快递收发", "hours": "08:00-18:00"},
+    {"name": "顺丰速运(丰顺营业部)", "town": "汤坑镇", "address": "汤坑镇", "phone": "95338", "services": "快递收发", "hours": "08:00-18:00"},
+    {"name": "中通快递(丰顺)", "town": "汤坑镇", "address": "汤坑镇", "phone": "", "services": "快递收发", "hours": "08:00-18:00"}
+  ],
+  "transport": [
+    {"name": "丰顺汽车客运站", "town": "汤坑镇", "address": "汤坑镇", "phone": "", "services": "班车（梅州/汕头/广州/深圳）", "hours": "06:00-18:00"},
+    {"name": "丰顺东站（高铁）", "town": "汤坑镇", "address": "汤坑镇附近", "phone": "", "services": "高铁（梅州/潮汕/深圳）", "hours": "随车次"}
+  ]
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>丰顺黄页 - 办事找电话，一看就知道</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, 'PingFang SC', sans-serif; background: #f5f5f5; color: #333; }
+.header { background: #1a5276; color: white; padding: 1.5rem 1rem; text-align: center; }
+.header h1 { font-size: 1.5rem; }
+.header p { opacity: 0.7; font-size: 0.85rem; margin-top: 0.3rem; }
+.tabs { display: flex; overflow-x: auto; background: white; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 10; }
+.tab { flex-shrink: 0; padding: 0.8rem 1.2rem; font-size: 0.9rem; cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; }
+.tab.active { border-bottom-color: #1a5276; color: #1a5276; font-weight: 600; }
+.tab:hover { background: #f8f9fa; }
+.container { max-width: 700px; margin: 0 auto; padding: 0.5rem; }
+.section { display: none; }
+.section.active { display: block; }
+.card { background: white; border-radius: 10px; padding: 1rem; margin: 0.5rem 0; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+.card h3 { font-size: 1rem; margin-bottom: 0.4rem; color: #1a5276; }
+.card .row { display: flex; align-items: center; gap: 0.5rem; margin: 0.25rem 0; font-size: 0.88rem; color: #555; }
+.card .label { color: #999; min-width: 2.5em; }
+.card .phone-link { color: #27ae60; text-decoration: none; font-weight: 600; }
+.card .phone-link:hover { text-decoration: underline; }
+.badge { display: inline-block; background: #e8f4fd; color: #1a5276; padding: 0.15rem 0.5rem; border-radius: 10px; font-size: 0.75rem; margin-left: 0.3rem; }
+.footer { text-align: center; padding: 2rem 1rem; color: #bbb; font-size: 0.8rem; }
+.town-filter { padding: 0.5rem 1rem; background: white; }
+.town-filter select { width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>📞 丰顺黄页</h1>
+  <p>办事找电话，一看就知道</p>
+</div>
+<div class="tabs">
+  <div class="tab active" onclick="show('government')">🏛️ 政务</div>
+  <div class="tab" onclick="show('medical')">🏥 医疗</div>
+  <div class="tab" onclick="show('education')">🎓 教育</div>
+  <div class="tab" onclick="show('finance')">🏦 银行</div>
+  <div class="tab" onclick="show('logistics')">📦 快递</div>
+  <div class="tab" onclick="show('transport')">🚌 交通</div>
+</div>
+<div class="town-filter">
+  <select id="townSelect" onchange="filterTown()">
+    <option value="">全部镇</option>
+    <option>汤坑镇</option><option>留隍镇</option><option>丰良镇</option>
+    <option>潘田镇</option><option>黄金镇</option><option>潭江镇</option>
+    <option>汤南镇</option><option>埔寨镇</option><option>北斗镇</option>
+    <option>八乡山镇</option><option>建桥镇</option><option>龙岗镇</option>
+    <option>大龙华镇</option><option>小胜镇</option><option>砂田镇</option>
+    <option>潭山镇</option>
+  </select>
+</div>
+<div class="container" id="content"></div>
+<div class="footer">📖 丰顺黄页 · 开源丰顺</div>
+<script>
+var data = {
+  government: [
+    {name:"丰顺县政务服务中心",town:"汤坑镇",address:"汤坑镇新世纪广场路",phone:"0753-12345",services:"社保、户籍、营业执照、税务",hours:"08:30-12:00, 14:30-18:00"},
+    {name:"丰顺县公安局（出入境）",town:"汤坑镇",address:"汤坑镇汤坑路",phone:"0753-6688110",services:"护照、港澳通行证、身份证",hours:"工作日 08:30-12:00"},
+    {name:"丰顺县社保局",town:"汤坑镇",address:"汤坑镇新世纪庄园路2号",phone:"0753-6686181",services:"社保缴纳、养老金、医保报销",hours:"工作日 08:30-12:00"},
+    {name:"丰顺县民政局",town:"汤坑镇",address:"汤坑镇",phone:"",services:"结婚登记、低保申请、养老服务",hours:"工作日 08:30-12:00"},
+    {name:"汤坑镇政务服务中心",town:"汤坑镇",address:"汤坑镇政府大院",phone:"",services:"户籍、低保、计生",hours:"工作日"},
+    {name:"留隍镇政务服务中心",town:"留隍镇",address:"留隍镇政府",phone:"",services:"户籍、低保、计生",hours:"工作日"},
+    {name:"丰良镇政务服务中心",town:"丰良镇",address:"丰良镇政府",phone:"",services:"户籍、低保、计生",hours:"工作日"}
+  ],
+  medical: [
+    {name:"丰顺县人民医院",town:"汤坑镇",address:"进华路101号",phone:"",services:"综合医疗、急诊24小时",hours:"24小时急诊"},
+    {name:"丰顺县中医院",town:"汤坑镇",address:"汤坑镇新院区",phone:"",services:"中医、康复理疗",hours:"08:00-17:30"},
+    {name:"丰顺县妇幼保健院",town:"汤坑镇",address:"汤坑镇",phone:"",services:"产检、儿童保健、疫苗",hours:"08:00-17:30"},
+    {name:"留隍镇中心卫生院",town:"留隍镇",address:"留隍镇",phone:"",services:"综合医疗",hours:"08:00-17:30"}
+  ],
+  education: [
+    {name:"丰顺中学",town:"汤坑镇",address:"汤坑镇",phone:"",services:"高中教育",hours:""},
+    {name:"东海中学",town:"汤坑镇",address:"埔河村",phone:"",services:"中学教育",hours:""},
+    {name:"丰顺县实验小学",town:"汤坑镇",address:"汤坑镇",phone:"",services:"小学教育",hours:""}
+  ],
+  finance: [
+    {name:"中国银行丰顺支行",town:"汤坑镇",address:"汤坑路43号",phone:"",services:"存取款、贷款、外汇",hours:"09:00-17:00"},
+    {name:"农业银行丰顺支行",town:"汤坑镇",address:"大山背东山路19号",phone:"0753-6623151",services:"存取款、贷款",hours:"09:00-17:00"},
+    {name:"丰顺农商银行",town:"汤坑镇",address:"汤坑镇各网点",phone:"",services:"存取款、社保卡、贷款",hours:"08:30-17:00"},
+    {name:"邮储银行丰顺支行",town:"汤坑镇",address:"花园街46-1号",phone:"",services:"存取款、理财、贷款",hours:"09:00-17:00"}
+  ],
+  logistics: [
+    {name:"京东快递(丰顺)",town:"汤坑镇",address:"金河三横街与金沙街交叉口北100米",phone:"13824587952",services:"快递收发",hours:"08:00-18:00"},
+    {name:"顺丰速运(丰顺)",town:"汤坑镇",address:"汤坑镇",phone:"95338",services:"快递收发",hours:"08:00-18:00"},
+    {name:"中通快递(丰顺)",town:"汤坑镇",address:"汤坑镇",phone:"",services:"快递收发",hours:"08:00-18:00"}
+  ],
+  transport: [
+    {name:"丰顺汽车客运站",town:"汤坑镇",address:"汤坑镇",phone:"",services:"班车（梅州/汕头/广州/深圳）",hours:"06:00-18:00"},
+    {name:"丰顺东站（高铁）",town:"汤坑镇",address:"汤坑镇附近",phone:"",services:"高铁（梅州/潮汕/深圳）",hours:"随车次"}
+  ]
+};
+var currentSection = 'government';
+function show(section) {
+  currentSection = section;
+  document.querySelectorAll('.tab').forEach(function(t,i){
+    var sections = ['government','medical','education','finance','logistics','transport'];
+    t.classList.toggle('active', sections[i]===section);
+  });
+  render();
+}
+function filterTown() { render(); }
+function render() {
+  var town = document.getElementById('townSelect').value;
+  var items = data[currentSection] || [];
+  if(town) items = items.filter(function(i){return i.town===town});
+  var html = '';
+  items.forEach(function(item){
+    html += '<div class="card">';
+    html += '<h3>'+item.name+'<span class="badge">'+item.town+'</span></h3>';
+    if(item.address) html += '<div class="row"><span class="label">📍</span>'+item.address+'</div>';
+    if(item.phone) html += '<div class="row"><span class="label">📞</span><a href="tel:'+item.phone+'" class="phone-link">'+item.phone+'</a></div>';
+    if(item.services) html += '<div class="row"><span class="label">🔧</span>'+item.services+'</div>';
+    if(item.hours) html += '<div class="row"><span class="label">🕐</span>'+item.hours+'</div>';
+    html += '</div>';
+  });
+  if(!items.length) html = '<div style="text-align:center;padding:3rem;color:#999;">该镇暂无数据，<a href="koubei.html" style="color:#1a5276;">去推荐一个</a></div>';
+  document.getElementById('content').innerHTML = html;
+}
+render();
+</script>
+</body>
+</html>

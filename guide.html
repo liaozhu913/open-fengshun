@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>丰顺办事指南 - 怎么办、去哪办、带什么</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, 'PingFang SC', sans-serif; background: #f5f5f5; color: #333; }
+.header { background: #27ae60; color: white; padding: 1.5rem 1rem; text-align: center; }
+.header h1 { font-size: 1.5rem; }
+.header p { opacity: 0.8; font-size: 0.85rem; margin-top: 0.3rem; }
+.container { max-width: 700px; margin: 0 auto; padding: 0.5rem; }
+.search { padding: 0.8rem; }
+.search input { width: 100%; padding: 0.7rem 1rem; border: 1px solid #ddd; border-radius: 10px; font-size: 0.95rem; }
+.search input:focus { outline: none; border-color: #27ae60; }
+.guide-card { background: white; border-radius: 12px; padding: 1.2rem; margin: 0.5rem 0; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+.guide-card h3 { font-size: 1.05rem; color: #2c3e50; margin-bottom: 0.6rem; cursor: pointer; }
+.guide-card h3:hover { color: #27ae60; }
+.guide-card .meta { display: flex; gap: 0.8rem; font-size: 0.82rem; color: #888; margin-bottom: 0.5rem; }
+.guide-card .meta span { display: flex; align-items: center; gap: 0.2rem; }
+.steps { display: none; margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid #f0f0f0; }
+.steps.open { display: block; }
+.step { display: flex; gap: 0.8rem; margin-bottom: 0.8rem; }
+.step-num { flex-shrink: 0; width: 24px; height: 24px; background: #27ae60; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; }
+.step-content { font-size: 0.9rem; line-height: 1.6; }
+.step-content strong { color: #2c3e50; }
+.materials { background: #f8f9fa; border-radius: 8px; padding: 0.8rem; margin-top: 0.5rem; }
+.materials h4 { font-size: 0.85rem; color: #666; margin-bottom: 0.4rem; }
+.materials li { font-size: 0.85rem; margin-left: 1.2rem; margin-bottom: 0.2rem; }
+.tip { background: #fff3cd; border-radius: 6px; padding: 0.5rem 0.8rem; font-size: 0.82rem; color: #856404; margin-top: 0.5rem; }
+.tag { display: inline-block; background: #e8f5e9; color: #27ae60; padding: 0.1rem 0.4rem; border-radius: 6px; font-size: 0.75rem; margin-right: 0.3rem; }
+.footer { text-align: center; padding: 2rem 1rem; color: #bbb; font-size: 0.8rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>📋 丰顺办事指南</h1>
+  <p>怎么办、去哪办、带什么，一看就懂</p>
+</div>
+<div class="search">
+  <input type="text" id="searchBox" placeholder="🔍 搜索：上户口、办护照、社保、结婚..." oninput="filter()">
+</div>
+<div class="container" id="content"></div>
+<div class="footer">📖 丰顺办事指南 · 开源丰顺</div>
+<script>
+var guides = [
+  {
+    title: "新生儿上户口",
+    tags: ["户籍","新生儿"],
+    time: "30分钟",
+    place: "派出所户籍窗口",
+    steps: [
+      "准备好所需材料（见下方）",
+      "到户籍所在地派出所取号排队",
+      "填写《出生登记申请表》",
+      "提交材料，工作人员审核",
+      "当场办结，拿到户口本"
+    ],
+    materials: ["父母双方身份证","父母户口本","结婚证","出生医学证明（医院给的）"],
+    tip: "建议出生后1个月内办理，超过1年需要额外材料"
+  },
+  {
+    title: "办理护照/港澳通行证",
+    tags: ["出入境","证件"],
+    time: "约20分钟（7个工作日取）",
+    place: "丰顺县公安局出入境管理科",
+    steps: [
+      "网上预约：登录广东省公安厅出入境政务服务网预约",
+      "带好材料到出入境窗口",
+      "现场拍照（穿深色衣服，不戴首饰）",
+      "填写申请表、录指纹",
+      "缴费（护照120元，港澳通行证60元）",
+      "7个工作日后凭回执领取"
+    ],
+    materials: ["身份证原件","户口本","2寸白底照片（也可现场拍）"],
+    tip: "首次办理必须本人到场，16岁以下需监护人陪同"
+  },
+  {
+    title: "办理社保卡",
+    tags: ["社保","银行卡"],
+    time: "即时制卡（约15分钟）",
+    place: "丰顺农商银行各网点",
+    steps: [
+      "携带身份证到农商银行网点",
+      "填写社保卡申领表",
+      "现场拍照",
+      "等待制卡（即时制卡机，约15分钟）",
+      "激活社保功能和金融功能"
+    ],
+    materials: ["身份证原件","1寸白底照片（可现场拍）"],
+    tip: "丰顺农商银行已布放9台即时制卡机，基本当天拿卡"
+  },
+  {
+    title: "办理营业执照（个体户）",
+    tags: ["工商","开店"],
+    time: "1-3个工作日",
+    place: "丰顺县市场监督管理局 / 政务服务中心",
+    steps: [
+      "准备3-5个备选店名",
+      "到市场监督管理局核名（1个工作日）",
+      "填写《个体工商户开业登记申请书》",
+      "提交材料（见下方）",
+      "审核通过后领取营业执照"
+    ],
+    materials: ["身份证原件及复印件","经营场所证明（租赁合同或房产证）","1寸照片","前置审批文件（餐饮需食品经营许可证）"],
+    tip: "现在很多可以网上办：登录广东省政务服务网在线申请"
+  },
+  {
+    title: "结婚登记",
+    tags: ["婚姻","民政局"],
+    time: "约30分钟",
+    place: "丰顺县民政局婚姻登记处",
+    steps: [
+      "双方带好材料一起到场",
+      "填写《申请结婚登记声明书》",
+      "宣读声明书（部分地区已简化）",
+      "工作人员审核材料",
+      "当场发证（结婚证）"
+    ],
+    materials: ["双方身份证","双方户口本","3张2寸红底合照（近6个月内）"],
+    tip: "现在全国通办，不需要回户籍地。好日子建议提前预约"
+  },
+  {
+    title: "城乡居民医保缴费",
+    tags: ["医保","缴费"],
+    time: "5分钟（手机办）",
+    place: "手机 / 社保局",
+    steps: [
+      "微信搜索粤省事小程序",
+      "进入税务社保费",
+      "选择城乡居民医疗保险",
+      "输入个人信息",
+      "在线缴费（一般380元/年）"
+    ],
+    materials: ["身份证号码","银行卡或微信支付"],
+    tip: "每年9-12月集中缴费期，错过要等下一年"
+  },
+  {
+    title: "孩子入学报名",
+    tags: ["教育","学区"],
+    time: "以学校通知为准",
+    place: "所属学区学校",
+    steps: [
+      "关注丰顺县教育局发布的招生公告（每年6-7月）",
+      "确认所属学区",
+      "准备报名材料",
+      "到学校现场报名或网上报名",
+      "等待录取通知"
+    ],
+    materials: ["户口本","房产证或租赁合同","父母身份证","预防接种证明","出生证明"],
+    tip: "学区划分每年可能有微调，以当年教育局公告为准"
+  },
+  {
+    title: "车辆年检",
+    tags: ["汽车","年检"],
+    time: "约1-2小时",
+    place: "丰顺县机动车检测站",
+    steps: [
+      "确保车辆无违章（先处理完）",
+      "携带行驶证、交强险保单到检测站",
+      "外观检查",
+      "上线检测（灯光、制动、排放等）",
+      "合格后领取年检标志"
+    ],
+    materials: ["行驶证","交强险保单","身份证","三角警示牌","灭火器"],
+    tip: "6年内免检车辆可直接在交管12123 APP申领免检标志"
+  },
+  {
+    title: "公积金提取（租房）",
+    tags: ["公积金","提取"],
+    time: "3-5个工作日",
+    place: "丰顺县住房公积金管理中心 / 网上办理",
+    steps: [
+      "登录梅州市住房公积金管理中心网站或粤省事",
+      "选择租房提取",
+      "填写提取金额和银行卡信息",
+      "上传租房合同（部分地区不需要）",
+      "审核通过后钱到账"
+    ],
+    materials: ["身份证","公积金账号","银行卡","租房合同（部分情况需要）"],
+    tip: "租房提取一般每年可提取一次，金额有上限"
+  },
+  {
+    title: "办理不动产权证",
+    tags: ["房产","不动产"],
+    time: "5-10个工作日",
+    place: "丰顺县不动产登记中心",
+    steps: [
+      "开发商或本人准备材料",
+      "到不动产登记中心取号",
+      "提交材料并填写申请表",
+      "缴纳契税（首套90㎡以下1%）",
+      "等待审核",
+      "领取不动产权证"
+    ],
+    materials: ["身份证","户口本","购房合同","购房发票","契税完税证明","房屋测绘报告"],
+    tip: "新房一般由开发商统一办理，二手房过户当场办结"
+  }
+];
+
+function render(filter) {
+  var list = guides;
+  if(filter) {
+    var q = filter.toLowerCase();
+    list = guides.filter(function(g){
+      return g.title.toLowerCase().includes(q) || g.tags.some(function(t){return t.includes(q)});
+    });
+  }
+  var html = '';
+  list.forEach(function(g, i){
+    html += '<div class="guide-card">';
+    html += '<h3 onclick="toggle('+i+')">'+g.title+'</h3>';
+    html += '<div class="meta"><span>⏱️ '+g.time+'</span><span>📍 '+g.place+'</span></div>';
+    g.tags.forEach(function(t){html += '<span class="tag">'+t+'</span>';});
+    html += '<div class="steps" id="steps'+i+'">';
+    g.steps.forEach(function(s,si){
+      html += '<div class="step"><div class="step-num">'+(si+1)+'</div><div class="step-content">'+s+'</div></div>';
+    });
+    html += '<div class="materials"><h4>📦 需要带什么</h4><ul>';
+    g.materials.forEach(function(m){html += '<li>'+m+'</li>';});
+    html += '</ul></div>';
+    if(g.tip) html += '<div class="tip">💡 '+g.tip+'</div>';
+    html += '</div></div>';
+  });
+  document.getElementById('content').innerHTML = html || '<div style="text-align:center;padding:3rem;color:#999;">没有找到相关指南</div>';
+}
+function toggle(i) { document.getElementById('steps'+i).classList.toggle('open'); }
+function filter() { render(document.getElementById('searchBox').value); }
+render();
+</script>
+</body>
+</html>
