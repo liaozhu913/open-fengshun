@@ -49,8 +49,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 快捷入口 */}
+      <section className="max-w-6xl mx-auto px-4 py-8">
+        <h2 className="text-2xl font-bold mb-6 text-gray-800">⚡ 生活服务</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a href="/koubei.html" className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="text-3xl mb-2">📖</div>
+            <div className="font-semibold text-gray-800">口碑簿</div>
+            <div className="text-xs text-gray-500 mt-1">乡亲真实推荐</div>
+          </a>
+          <a href="/yellowpages.html" className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="text-3xl mb-2">📞</div>
+            <div className="font-semibold text-gray-800">丰顺黄页</div>
+            <div className="text-xs text-gray-500 mt-1">政务·医疗·银行·快递</div>
+          </a>
+          <a href="/guide.html" className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="text-3xl mb-2">📋</div>
+            <div className="font-semibold text-gray-800">办事指南</div>
+            <div className="text-xs text-gray-500 mt-1">怎么办·去哪办·带什么</div>
+          </a>
+          <a href="/submit.html" className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="text-3xl mb-2">✍️</div>
+            <div className="font-semibold text-gray-800">共建提交</div>
+            <div className="text-xs text-gray-500 mt-1">推荐商家/地点</div>
+          </a>
+        </div>
+      </section>
+
       {/* Featured */}
-      <section className="max-w-6xl mx-auto px-4 py-12">
+      <section className="max-w-6xl mx-auto px-4 py-8">
         <h2 className="text-2xl font-bold mb-6 text-gray-800">⭐ 精选推荐</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {featured.map((b, i) => (
