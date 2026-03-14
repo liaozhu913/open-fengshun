@@ -2,8 +2,8 @@
   "meta": {
     "source": "开源丰顺 OpenFengshun",
     "collected_at": "2026-03-14T11:54:35.067867",
-    "total_records": 53,
-    "version": "0.2"
+    "total_records": 76,
+    "version": "0.4"
   },
   "businesses": [
     {
@@ -926,6 +926,341 @@
         "免费"
       ],
       "source": "xiaohongshu"
+    },
+    {
+      "name": "鹿湖温泉假日酒店",
+      "category": "住宿",
+      "subcategory": "度假酒店",
+      "town": "留隍镇",
+      "address": "留隍镇鹿湖温泉度假区内",
+      "phone": "",
+      "description": "东南亚风格酒店，含私家温泉池、儿童游乐区、中西餐厅",
+      "price_range": "500-1500",
+      "rating": 4.5,
+      "tags": [
+        "高端"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "雲景大酒店",
+      "category": "住宿",
+      "subcategory": "酒店",
+      "town": "留隍镇",
+      "address": "留隍镇新兴路",
+      "phone": "",
+      "description": "客房、餐饮、KTV，配备地下停车场",
+      "price_range": "200-400",
+      "rating": 4.1,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "鹿义客栈",
+      "category": "住宿",
+      "subcategory": "客栈",
+      "town": "留隍镇",
+      "address": "留隍镇鹿湖温泉附近",
+      "phone": "",
+      "description": "电瓶车接送至鹿湖温泉，距韩江沙滩仅1公里",
+      "price_range": "100-200",
+      "rating": 4.0,
+      "tags": [
+        "性价比"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "丰政古街",
+      "category": "旅游",
+      "subcategory": "古镇",
+      "town": "留隍镇",
+      "address": "留隍镇丰政路",
+      "phone": "",
+      "description": "千年潮客古街，明代万江亭、清代潮商码头遗址",
+      "price_range": "免费",
+      "rating": 4.2,
+      "tags": [
+        "免费"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "东华古寨",
+      "category": "旅游",
+      "subcategory": "古迹",
+      "town": "留隍镇",
+      "address": "留隍镇",
+      "phone": "",
+      "description": "客家围寨，展现潮客文化交融历史",
+      "price_range": "免费",
+      "rating": 4.1,
+      "tags": [
+        "免费"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "留隍阿婆灶韩江家宴",
+      "category": "餐饮",
+      "subcategory": "私房菜",
+      "town": "留隍镇",
+      "address": "留隍镇（需村民微信预约）",
+      "phone": "",
+      "description": "地热蒸鸡、金樱子焖鸭、韩江源豆腐，按当日食材定制菜单",
+      "price_range": "人均约300",
+      "rating": 4.6,
+      "tags": [
+        "特色",
+        "预约"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "留隍猪脚粉",
+      "category": "餐饮",
+      "subcategory": "小吃",
+      "town": "留隍镇",
+      "address": "留隍镇",
+      "phone": "",
+      "description": "留隍特色猪脚粉，卤猪脚配腌面",
+      "price_range": "15-25",
+      "rating": 4.2,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "李坚真故居",
+      "category": "旅游",
+      "subcategory": "红色旅游",
+      "town": "黄金镇",
+      "address": "黄金镇",
+      "phone": "",
+      "description": "广东省红色旅游经典景区、文物保护单位，革命传统教育基地",
+      "price_range": "免费",
+      "rating": 4.4,
+      "tags": [
+        "免费",
+        "红色旅游"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "清溪河漂流",
+      "category": "旅游",
+      "subcategory": "漂流",
+      "town": "黄金镇",
+      "address": "黄金镇清溪河段",
+      "phone": "",
+      "description": "龙鲸河漂流下段，水流平缓适合亲子",
+      "price_range": "约80",
+      "rating": 4.2,
+      "tags": [
+        "亲子"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "黄金姜糖",
+      "category": "购物",
+      "subcategory": "特产",
+      "town": "黄金镇",
+      "address": "黄金镇",
+      "phone": "",
+      "description": "梅州非物质文化遗产，传统手工姜糖，甜辣有韧性",
+      "price_range": "10-30",
+      "rating": 4.3,
+      "tags": [
+        "非遗",
+        "特产"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "铜峰高山云雾茶",
+      "category": "购物",
+      "subcategory": "茶叶",
+      "town": "砂田镇",
+      "address": "砂田镇铜鼓嶂",
+      "phone": "",
+      "description": "种植面积1500亩，年产10万斤，高山有机茶",
+      "price_range": "50-200/斤",
+      "rating": 4.5,
+      "tags": [
+        "特产"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "砂田镇农家乐",
+      "category": "餐饮",
+      "subcategory": "农家乐",
+      "town": "砂田镇",
+      "address": "砂田镇",
+      "phone": "",
+      "description": "登铜鼓峰后的休息驿站，农家菜",
+      "price_range": "人均40-60",
+      "rating": 4.1,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "砂田镇民宿",
+      "category": "住宿",
+      "subcategory": "民宿",
+      "town": "砂田镇",
+      "address": "砂田镇",
+      "phone": "",
+      "description": "铜鼓峰山脚民宿，看日出方便",
+      "price_range": "100-200",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "八乡山番薯",
+      "category": "购物",
+      "subcategory": "农产品",
+      "town": "八乡山镇",
+      "address": "八乡山镇",
+      "phone": "",
+      "description": "高山番薯，甜度高粉糯香，丰顺地标农产品",
+      "price_range": "5-10/斤",
+      "rating": 4.4,
+      "tags": [
+        "特产"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "八乡山红军纪念馆",
+      "category": "旅游",
+      "subcategory": "红色旅游",
+      "town": "八乡山镇",
+      "address": "八乡山镇",
+      "phone": "",
+      "description": "东江苏维埃政府旧址，红色革命教育基地",
+      "price_range": "免费",
+      "rating": 4.3,
+      "tags": [
+        "免费",
+        "红色旅游"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "八乡山镇农家乐",
+      "category": "餐饮",
+      "subcategory": "农家乐",
+      "town": "八乡山镇",
+      "address": "八乡山镇",
+      "phone": "",
+      "description": "高山农家菜，走地鸡、野菜、竹笋",
+      "price_range": "人均50-80",
+      "rating": 4.2,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "艺龙瑞云酒店",
+      "category": "住宿",
+      "subcategory": "酒店",
+      "town": "丰良镇",
+      "address": "丰良镇新城开发区",
+      "phone": "",
+      "description": "临近大丰华高速，交通便利",
+      "price_range": "150-300",
+      "rating": 4.1,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "丰良温泉",
+      "category": "温泉",
+      "subcategory": "天然温泉",
+      "town": "丰良镇",
+      "address": "丰良镇",
+      "phone": "",
+      "description": "天然温泉资源，水质优良",
+      "price_range": "免费/低价",
+      "rating": 4.2,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "丰良镇美食店",
+      "category": "餐饮",
+      "subcategory": "饭店",
+      "town": "丰良镇",
+      "address": "丰良镇",
+      "phone": "",
+      "description": "客家本地菜，酿豆腐、梅菜扣肉",
+      "price_range": "人均40-60",
+      "rating": 4.0,
+      "tags": [],
+      "source": "web_crawl"
+    },
+    {
+      "name": "御逸温泉小院",
+      "category": "住宿",
+      "subcategory": "民宿",
+      "town": "汤坑镇",
+      "address": "汤坑镇",
+      "phone": "",
+      "description": "私汤温泉小院，人均75元/晚",
+      "price_range": "75-150",
+      "rating": 4.3,
+      "tags": [
+        "性价比",
+        "温泉"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "金德宝温泉公寓",
+      "category": "住宿",
+      "subcategory": "公寓",
+      "town": "汤坑镇",
+      "address": "汤坑镇",
+      "phone": "",
+      "description": "含私汤或公共温泉池",
+      "price_range": "75-150",
+      "rating": 4.2,
+      "tags": [
+        "性价比",
+        "温泉"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "汤坑牛肉火锅",
+      "category": "餐饮",
+      "subcategory": "火锅",
+      "town": "汤坑镇",
+      "address": "汤坑镇",
+      "phone": "",
+      "description": "丰顺名物，现切新鲜牛肉火锅",
+      "price_range": "人均80-120",
+      "rating": 4.5,
+      "tags": [
+        "特色"
+      ],
+      "source": "web_crawl"
+    },
+    {
+      "name": "丰顺博物馆",
+      "category": "旅游",
+      "subcategory": "博物馆",
+      "town": "汤坑镇",
+      "address": "汤坑镇新世纪广场",
+      "phone": "",
+      "description": "了解丰顺历史文化和温泉资源",
+      "price_range": "免费",
+      "rating": 4.0,
+      "tags": [
+        "免费"
+      ],
+      "source": "web_crawl"
     }
   ]
 }
