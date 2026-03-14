@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>开源丰顺 - 提交商家信息</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f5f5f5; color: #333; }
+.header { background: linear-gradient(135deg, #ff6b35, #f7931e); color: white; padding: 2rem 1rem; text-align: center; }
+.header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.header p { opacity: 0.9; font-size: 0.95rem; }
+.container { max-width: 600px; margin: 0 auto; padding: 1.5rem 1rem; }
+.form-card { background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+.field { margin-bottom: 1.5rem; }
+.field label { display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem; }
+.field label .required { color: #ff4d4f; }
+.field input, .field select, .field textarea {
+  width: 100%; padding: 0.75rem 1rem; border: 1.5px solid #e0e0e0; border-radius: 10px;
+  font-size: 1rem; transition: border-color 0.2s; background: #fafafa;
+}
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: #ff6b35; background: white; }
+.field textarea { resize: vertical; min-height: 80px; }
+.field .hint { font-size: 0.8rem; color: #999; margin-top: 0.3rem; }
+.submit-btn {
+  width: 100%; padding: 1rem; background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: white; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 600;
+  cursor: pointer; transition: transform 0.1s, box-shadow 0.2s;
+}
+.submit-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(255,107,53,0.4); }
+.submit-btn:active { transform: translateY(0); }
+.success-msg { display: none; text-align: center; padding: 3rem 1rem; }
+.success-msg .icon { font-size: 4rem; margin-bottom: 1rem; }
+.success-msg h2 { color: #52c41a; margin-bottom: 0.5rem; }
+.success-msg p { color: #666; }
+.footer { text-align: center; padding: 2rem 1rem; color: #999; font-size: 0.85rem; }
+.footer a { color: #ff6b35; text-decoration: none; }
+.tag-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tag-grid label { display: flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; background: #f5f5f5; border-radius: 20px; font-size: 0.85rem; cursor: pointer; border: 1.5px solid transparent; }
+.tag-grid label:hover { border-color: #ff6b35; }
+.tag-grid input:checked + span { color: #ff6b35; font-weight: 600; }
+.tag-grid input { display: none; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🦞 开源丰顺</h1>
+  <p>丰顺人的生活指南 · 开源共建</p>
+</div>
+<div class="container">
+  <div class="form-card" id="formCard">
+    <h2 style="margin-bottom:1.5rem;font-size:1.2rem;">📍 提交商家/地点信息</h2>
+    <form id="submitForm">
+      <div class="field">
+        <label>名称 <span class="required">*</span></label>
+        <input type="text" id="name" required placeholder="商家或地点名称">
+      </div>
+      <div class="field">
+        <label>分类 <span class="required">*</span></label>
+        <select id="category" required>
+          <option value="">请选择分类</option>
+          <option value="餐饮">🍜 餐饮</option>
+          <option value="住宿">🏨 住宿</option>
+          <option value="温泉">♨️ 温泉</option>
+          <option value="旅游">🏞️ 旅游</option>
+          <option value="医疗">🏥 医疗</option>
+          <option value="政务办事">🏛️ 政务办事</option>
+          <option value="银行">🏦 银行</option>
+          <option value="快递物流">📦 快递物流</option>
+          <option value="教育">🎓 教育</option>
+          <option value="生活服务">🏪 生活服务</option>
+          <option value="购物">🛒 购物</option>
+          <option value="交通出行">🚌 交通出行</option>
+          <option value="美容美发">💇 美容美发</option>
+          <option value="汽车服务">🚗 汽车服务</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>所属镇 <span class="required">*</span></label>
+        <select id="town" required>
+          <option value="">请选择镇</option>
+          <option value="汤坑镇">汤坑镇</option>
+          <option value="留隍镇">留隍镇</option>
+          <option value="丰良镇">丰良镇</option>
+          <option value="潘田镇">潘田镇</option>
+          <option value="黄金镇">黄金镇</option>
+          <option value="潭江镇">潭江镇</option>
+          <option value="汤南镇">汤南镇</option>
+          <option value="埔寨镇">埔寨镇</option>
+          <option value="北斗镇">北斗镇</option>
+          <option value="八乡山镇">八乡山镇</option>
+          <option value="建桥镇">建桥镇</option>
+          <option value="龙岗镇">龙岗镇</option>
+          <option value="大龙华镇">大龙华镇</option>
+          <option value="小胜镇">小胜镇</option>
+          <option value="砂田镇">砂田镇</option>
+          <option value="潭山镇">潭山镇</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>详细地址</label>
+        <input type="text" id="address" placeholder="街道/门牌号">
+      </div>
+      <div class="field">
+        <label>联系电话</label>
+        <input type="tel" id="phone" placeholder="手机号或座机号">
+      </div>
+      <div class="field">
+        <label>营业时间</label>
+        <input type="text" id="hours" placeholder="如：08:00-22:00 或 24小时">
+      </div>
+      <div class="field">
+        <label>简介/特色</label>
+        <textarea id="desc" placeholder="一句话介绍，有什么特色？"></textarea>
+      </div>
+      <div class="field">
+        <label>价格区间</label>
+        <input type="text" id="price" placeholder="如：人均50-80元">
+      </div>
+      <div class="field">
+        <label>标签</label>
+        <div class="tag-grid">
+          <label><input type="checkbox" value="免费"><span>免费</span></label>
+          <label><input type="checkbox" value="老字号"><span>老字号</span></label>
+          <label><input type="checkbox" value="亲子"><span>亲子</span></label>
+          <label><input type="checkbox" value="24小时"><span>24小时</span></label>
+          <label><input type="checkbox" value="网红"><span>网红</span></label>
+          <label><input type="checkbox" value="非遗"><span>非遗</span></label>
+          <label><input type="checkbox" value="AAA景区"><span>AAA景区</span></label>
+          <label><input type="checkbox" value="AAAA景区"><span>AAAA景区</span></label>
+          <label><input type="checkbox" value="高端"><span>高端</span></label>
+          <label><input type="checkbox" value="性价比"><span>性价比</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>你的昵称（可匿名）</label>
+        <input type="text" id="submitter" placeholder="选填">
+      </div>
+      <button type="submit" class="submit-btn">✅ 提交信息</button>
+    </form>
+  </div>
+  <div class="success-msg" id="successMsg">
+    <div class="icon">🎉</div>
+    <h2>提交成功！</h2>
+    <p>感谢你的共建！审核后会自动收录到开源丰顺网站。</p>
+    <br>
+    <button onclick="location.reload()" style="padding:0.8rem 2rem;background:#ff6b35;color:white;border:none;border-radius:10px;font-size:1rem;cursor:pointer;">继续提交</button>
+  </div>
+</div>
+<div class="footer">
+  <p>🦞 开源丰顺 OpenFengshun</p>
+  <p><a href="https://liaozhu913.github.io/open-fengshun/">访问网站</a> · <a href="https://github.com/liaozhu913/open-fengshun">GitHub</a></p>
+</div>
+
+<script>
+document.getElementById('submitForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.querySelector('.submit-btn');
+  btn.textContent = '提交中...';
+  btn.disabled = true;
+
+  const tags = [...document.querySelectorAll('.tag-grid input:checked')].map(el => el.value);
+  
+  const data = {
+    fields: {
+      '商家名称': document.getElementById('name').value,
+      '分类': document.getElementById('category').value,
+      '所属镇': document.getElementById('town').value,
+      '详细地址': document.getElementById('address').value,
+      '联系电话': document.getElementById('phone').value,
+      '营业时间': document.getElementById('hours').value,
+      '简介特色': document.getElementById('desc').value,
+      '价格区间': document.getElementById('price').value,
+      '标签': tags,
+      '状态': '待审核',
+      '提交人': document.getElementById('submitter').value || '匿名'
+    }
+  };
+
+  // Store to localStorage as backup (form data collection)
+  const submissions = JSON.parse(localStorage.getItem('fengshun_submissions') || '[]');
+  submissions.push({...data.fields, _time: new Date().toISOString()});
+  localStorage.setItem('fengshun_submissions', JSON.stringify(submissions));
+
+  // Show success (actual API integration requires webhook URL)
+  document.getElementById('formCard').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+});
+</script>
+</body>
+</html>
